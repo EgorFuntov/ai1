@@ -2,11 +2,7 @@ import torch
 
 import numpy as np
 
-'''random.seed(0)
-np.random.seed(0)
-torch.manual_seed(0)
-torch.cuda.manual_seed(0)
-torch.backends.cudnn.deterministic = True'''
+
 
 #Создание тестировочного и обучающего тензора
 x_train = torch.zeros([20000, 30, 30])
@@ -88,9 +84,9 @@ class AnimalNet(torch.nn.Module):
   def __init__(self, n_hiden_neurons):
     super(AnimalNet, self).__init__()
     self.fc1 = torch.nn.Linear(30*30, n_hiden_neurons)
-    self.ac1 = torch.nn.ReLU()
+    self.ac1 = torch.nn.Sigmoid()
     self.fc2 = torch.nn.Linear(n_hiden_neurons, n_hiden_neurons)
-    self.ac2 = torch.nn.ReLU()
+    self.ac2 = torch.nn.Sigmoid()
     self.fc3 = torch.nn.Linear(n_hiden_neurons, 1)
 
 
